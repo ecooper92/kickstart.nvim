@@ -203,6 +203,10 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
+vim.keymap.set('v', 'p', 'pgvy', { desc = 'Re-yank what was just pasted' })
+vim.keymap.set('v', '<leader>rj', '"ry:%s/<C-r>r//g<Left><Left>', { desc = 'Re-yank what was just pasted' })
+vim.keymap.set('v', '<leader>rk', '"ry:%s/<C-r>r//g<Left><Left><C-V><Enter>', { desc = 'Re-yank what was just pasted' })
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
