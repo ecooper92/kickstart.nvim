@@ -1,5 +1,7 @@
 return {
   'yetone/avante.nvim',
+  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+  build = vim.fn.has 'win32' and 'powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false' or 'make',
   event = 'VeryLazy',
   version = false, -- Never set this value to "*"! Never!
   opts = {
@@ -8,7 +10,7 @@ return {
     provider = 'copilot',
     auto_suggestions_provider = 'copilot',
     copilot = {
-      model = 'claude-3.7-sonnet',
+      model = 'claude-4-sonnet',
     },
     -- provider = 'openai',
     openai = {
@@ -20,8 +22,6 @@ return {
       --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
     },
   },
-  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-  build = 'make',
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
   dependencies = {
     'nvim-treesitter/nvim-treesitter',
@@ -38,7 +38,7 @@ return {
       'zbirenbaum/copilot.lua', -- for providers='copilot'
       config = function()
         require('copilot').setup {
-          copilot_node_command = '/home/ecooper/.nvm/versions/node/v22.16.0/bin/node',
+          copilot_node_command = 'node',
           suggestion = {
             enabled = true,
             auto_trigger = true,

@@ -1032,7 +1032,6 @@ require('lazy').setup({
   require 'custom.plugins.comment',
   require 'custom.plugins.neogit',
   require 'custom.plugins.harpoon',
-  require 'custom.plugins.markdown',
   require 'custom.plugins.trouble',
   require 'custom.plugins.vscode-theme',
 
